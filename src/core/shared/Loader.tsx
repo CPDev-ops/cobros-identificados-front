@@ -23,7 +23,7 @@ export const LoaderPageDomain: React.FC<LoaderProps> = ({ visible }) => {
         <div className={`loader-container ${visible ? "visible" : "hidden"}`}>
             <div className="palm-loader">
                 <div className="palm-tree">
-                    <img src="/images/pilar/icon.png" alt="Logo" className="palm-image" />
+                    <img src="/images/pilar/logo-bingo.png" alt="Logo" className="palm-image" />
                 </div>
                 <div className="dots-circle">
                     {[...Array(24)].map((_, i) => (

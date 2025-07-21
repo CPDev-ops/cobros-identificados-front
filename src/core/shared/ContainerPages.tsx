@@ -8,6 +8,7 @@ export const ContainerPages: React.FC<ContainerPagesProps> = ({ children, classN
             <div className="w-full  mx-auto">
                 {children}
             </div>
+            
         </div>
     )
 }
