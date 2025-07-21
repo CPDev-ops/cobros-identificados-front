@@ -1,14 +1,22 @@
+import { motion } from 'framer-motion';
+import type { ReactNode, FC } from 'react';
+
 interface ContainerPagesProps {
-    children: React.ReactNode
+    children: ReactNode
     className?: string;
 }
-export const ContainerPages: React.FC<ContainerPagesProps> = ({ children, className = "" }) => {
+export const ContainerPages: FC<ContainerPagesProps> = ({ children, className = "" }) => {
     return (
-        <div className={`min-h-screen text-xs break-words flex items-center justify-center px-4 ${className}`}>
-            <div className="w-full  mx-auto">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className={`min-h-screen text-xs break-words flex items-center justify-center px-4 bg-gradient-to-tr from-gray-100 to-gray-100 ${className}`}
+        >
+            <div className="w-full mx-auto">
                 {children}
             </div>
-            
-        </div>
+        </motion.div>
     )
 }
