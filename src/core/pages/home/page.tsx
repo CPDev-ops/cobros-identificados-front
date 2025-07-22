@@ -7,36 +7,43 @@ import { ContainerModals } from "../../shared/ContainerModals"
 import ModalQr from "./components/mod/ModalQr"
 import LogoHeader from "../../shared/ui/LogoHeader"
 import GenerateOrderCard from "./components/GenerateOrderCard"
+import CardList from "./components/CardList"
 
 interface PageHomeProps {
     domain: string;
 }
 const PageHome: FC<PageHomeProps> = ({ domain }) => {
     const [modal, setModal] = useState<boolean>(false)
-    const [value, setValue] = useState<string>("")
     const [dataQr, setDataQr] = useState<DtoData | null>(null)
+    /* BOOLEANO DE LA PRIMER CARD ORDERFORM */
+    const [isOpen, setIsOpen] = useState<boolean>(true)
     const handleOpenModal = (data: DtoData) => {
         console.log(data);
         setDataQr(data)
         setModal(true)
-
+        setIsOpen(false)
     }
+
     return (
         <SidebarPage>
             <ContainerPages className="bg-gradient-to-tr  from-gray-100 to-gray-100 ">
-                <div className="space-y-16 max-w-5xl mx-auto pt-4 ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto pt-6">
                     {/* COMPONENTES  */}
-                    <LogoHeader domain={domain} />
-                    <OrderForm success={(data: DtoData) => handleOpenModal(data)} domain={domain} />
+                    {/* Logo que ocupa todas las columnas */}
+                    <div className="col-span-1 sm:col-span-2 lg:col-span-3">
+                        <LogoHeader domain={domain} />
+                    </div>
+                    <OrderForm isOpen={isOpen} setIsOpen={setIsOpen} success={(data: DtoData) => handleOpenModal(data)} domain={domain} />
                     {dataQr && dataQr.link && (
                         <GenerateOrderCard amount={parseInt(dataQr.monto)} qrLink={dataQr.link} domain={domain} />
                     )}
+                    <CardList />
                 </div>
                 {/* FOOTER */}
                 <Footer />
-                {modal && (
+                {modal && dataQr?.link && (
                     <ContainerModals>
-                        <ModalQr domain={domain} value={value} onClose={() => setModal(false)} />
+                        <ModalQr domain={domain} value={dataQr?.link} onClose={() => setModal(false)} />
                     </ContainerModals>
                 )}
             </ContainerPages>

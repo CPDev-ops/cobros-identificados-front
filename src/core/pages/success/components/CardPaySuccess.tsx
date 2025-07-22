@@ -14,7 +14,7 @@ interface CardPaySuccessProps {
 const CardPaySuccess: FC<CardPaySuccessProps> = ({ amount, dateTime, /* dni, */ paymentId, domain }) => {
     const { gradient } = getDomainStyles(domain)
     return (
-        <div className={`rounded-xl p-6 w-full max-w-sm mx-auto text-white bg-gradient-to-r ${gradient} space-y-5 text-center shadow-lg`}>
+        <div className={`rounded-xl p-6 w-full max-w-xs sm:max-w-sm mx-auto text-white bg-gradient-to-r ${gradient} space-y-5 text-center shadow-lg`}>
             {/* Icono y mensaje */}
             <div className="flex flex-col items-center gap-1">
                 <GoCheckCircleFill className="text-green-600 bg-white rounded-full text-5xl" />
@@ -23,7 +23,7 @@ const CardPaySuccess: FC<CardPaySuccessProps> = ({ amount, dateTime, /* dni, */ 
 
             {/* Monto */}
             <div className="border-t border-gray-300 pt-2 space-y-1">
-                <p className="text-3xl font-semibold">${amount.toFixed(2)}</p>
+                <p className="text-2xl font-semibold">${amount.toFixed(2)}</p>
                 <p className="text-sm text-white/90">Pago</p>
             </div>
 
@@ -32,24 +32,24 @@ const CardPaySuccess: FC<CardPaySuccessProps> = ({ amount, dateTime, /* dni, */ 
                 <div className="flex items-center bg-white text-gray-800 rounded-md px-4 py-3 gap-3">
                     <MdAccessTime className="text-lg text-red-600" />
                     <div>
-                        <p className=" text-xs">Fecha y hora</p>
-                        <p className="text-sm text-gray-600/90">{dateTime}</p>
+                        <p className=" ">Fecha y hora</p>
+                        <p className=" text-gray-600/90">{dateTime}</p>
                     </div>
                 </div>
-{/* 
+                {/* 
                 <div className="flex items-center bg-white text-gray-800 rounded-md px-4 py-3 gap-3">
                     <MdPerson className="text-lg text-red-600" />
                     <div>
-                        <p className=" text-xs">DNI/CUIL</p>
-                        <p className="text-sm text-gray-600/90">{dni}</p>
+                        <p className=" ">DNI/CUIL</p>
+                        <p className=" text-gray-600/90">{dni}</p>
                     </div>
                 </div> */}
 
                 <div className="flex items-center bg-white text-gray-800 rounded-md px-4 py-3 gap-3">
                     <MdCreditCard className="text-lg text-red-600" />
                     <div>
-                        <p className=" text-xs">ID de Pago</p>
-                        <p className="text-sm text-gray-600/90">{paymentId}</p>
+                        <p className=" ">ID de Pago</p>
+                        <p className=" text-gray-600/90">{paymentId}</p>
                     </div>
                 </div>
             </div>

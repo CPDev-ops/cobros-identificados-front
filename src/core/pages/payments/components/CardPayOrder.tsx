@@ -13,14 +13,14 @@ const CardPayOrder: FC<CardPayOrderProps> = ({ domain, amount, concepto, onConfi
     const { gradient } = getDomainStyles(domain);
 
     return (
-        <div className={`rounded-xl p-6 w-full max-w-sm mx-auto text-white bg-gradient-to-r ${gradient} space-y-4 text-center shadow-lg`}>
+        <div className={`rounded-xl px-4 py-6 w-full max-w-xs sm:max-w-sm mx-auto text-white bg-gradient-to-r ${gradient} space-y-4 text-center shadow-lg`}>
             <div>
                 <h2 className="text-lg ">Confirmar Pago</h2>
                 <p className="text-xs text-gray-300">Revisá los detalles antes de continuar</p>
             </div>
 
             <div className="border-y border-gray-300 py-4">
-                <p className="text-3xl font-semibold  text-white">${amount.toFixed(2)}</p>
+                <p className="text-3xl font-semibold text-white">${amount.toFixed(2)}</p>
                 <p className="text-sm text-gray-300">Pago</p>
             </div>
 
@@ -29,7 +29,7 @@ const CardPayOrder: FC<CardPayOrderProps> = ({ domain, amount, concepto, onConfi
 
                 <div className="flex justify-between">
                     <span className=" text-gray-200">Monto:</span>
-                    <span className="text-white">${amount.toFixed(2)}</span>
+                    <span className="text-white ">${amount.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                     <span className=" text-gray-200">Concepto:</span>

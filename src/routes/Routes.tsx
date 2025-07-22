@@ -9,7 +9,7 @@ import PageSuccess from '../core/pages/success/page'
 export const RouterContainer = () => {
     const domain = 'PILAR'
     return (
-        <div className='tracking-wider gothamMedium'>
+        <div className='tracking-wider gothamBook'>
             <Routes>
                 <Route path='/' element={<RedirectModule route='/home' />} />
                 <Route path='/home' element={<PageHome domain={domain} />} />
