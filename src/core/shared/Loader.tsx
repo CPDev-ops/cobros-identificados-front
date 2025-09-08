@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import '../utils/css/loaderDomain.scss'
 interface LoaderProps {
     visible: boolean
+    domain: string
 }
 
-export const LoaderPageDomain: React.FC<LoaderProps> = ({ visible }) => {
+export const LoaderPageDomain: React.FC<LoaderProps> = ({ visible, domain }) => {
     //manejamos la visibilidad del componente
     const [show, setShow] = useState<boolean>(visible)
 
@@ -23,7 +24,7 @@ export const LoaderPageDomain: React.FC<LoaderProps> = ({ visible }) => {
         <div className={`loader-container ${visible ? "visible" : "hidden"}`}>
             <div className="palm-loader">
                 <div className="palm-tree">
-                    <img src="/images/pilar/logo-bingo.png" alt="Logo" className="palm-image" />
+                    <img src={`/images/${domain}/LOADER.png`} alt="Logo" className="palm-image" />
                 </div>
                 <div className="dots-circle">
                     {[...Array(24)].map((_, i) => (

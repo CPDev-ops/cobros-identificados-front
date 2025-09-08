@@ -1,6 +1,5 @@
 import type { FC } from "react";
 import { getDomainStyles } from "../../../utils/css/getDomainStyle";
-import { FaArrowRight } from "react-icons/fa";
 
 interface CardPayOrderProps {
     domain: string;

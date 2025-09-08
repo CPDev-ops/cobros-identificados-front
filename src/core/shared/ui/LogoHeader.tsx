@@ -1,12 +1,13 @@
-import logoPilar from "/images/pilar/LOGO.png";
-import logoZarate from "/images/zarate/LOGO.png";
-import logoNca from "/images/salta/LOGO.png";
+import logoPilar from "/images/PILAR/LOGO.png";
+import logoZarate from "/images/ZARATE/LOGO.png";
+import logoNca from "/images/SALTA/LOGO.png";
 
 interface LogoHeaderProps {
     domain: string;
+    title?: string
 }
 
-const LogoHeader: React.FC<LogoHeaderProps> = ({ domain }) => {
+const LogoHeader: React.FC<LogoHeaderProps> = ({ domain,title="Creá tu orden de cobro con Mercado Pago" }) => {
     const logos: Record<string, string> = {
         PILAR: logoPilar,
         ZARATE: logoZarate,
@@ -19,7 +20,7 @@ const LogoHeader: React.FC<LogoHeaderProps> = ({ domain }) => {
         <div className="text-center space-y-4">
             <img src={logo} alt={`Logo ${domain}`} className="mx-auto w-52 sm:w-44" />
             <p className="text-sm sm:text-base opacity-80 text-gray-700">
-                Creá tu orden de cobro con Mercado Pago
+                {title  }
             </p>
         </div>
     );

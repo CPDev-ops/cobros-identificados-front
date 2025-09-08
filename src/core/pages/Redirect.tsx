@@ -5,9 +5,9 @@ import { LoaderPageDomain } from "../shared/Loader.tsx";
 
 interface RedirectModuleProps {
     route: string;
-
+    domain: string
 }
-const RedirectModule: React.FC<RedirectModuleProps> = ({ route }) => {
+const RedirectModule: React.FC<RedirectModuleProps> = ({ route, domain }) => {
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ const RedirectModule: React.FC<RedirectModuleProps> = ({ route }) => {
                     className="fixed inset-0 flex items-center justify-center bg-stone-900 z-50"
                 >
                     {/* Aquí puedes colocar tu animación de carga */}
-                    <LoaderPageDomain visible />
+                    <LoaderPageDomain domain={domain} visible />
                 </motion.div>
             )}
         </main>

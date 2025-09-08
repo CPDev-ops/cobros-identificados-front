@@ -105,7 +105,7 @@ const CardList = () => {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.4, ease: "easeInOut", delay: 0.1 }}
-                        className="overflow-hidden space-y-3 max-h-[250px] sm:max-h-[400px] overflow-y-auto"
+                        className="overflow-hidden space-y-3 max-h-[250px]  overflow-y-auto"
                     >
                         {bodyTest.map((order) => (
                             <div
@@ -117,7 +117,7 @@ const CardList = () => {
                                         className={`rounded-full p-1.5 ${order.status === "paid" ? "bg-gradient-to-r from-green-600 to-green-500" : "bg-gradient-to-r from-red-600 to-red-500"
                                             } text-white `}
                                     >
-                                        <MdAccessTime size={16}/>
+                                        <MdAccessTime size={16} />
                                     </div>
                                     <div>
                                         <p className="text-gray-800 text-sm text-start">

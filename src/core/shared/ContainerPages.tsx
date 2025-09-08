@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import type { ReactNode, FC } from 'react';
+import Footer from './Footer';
 
 interface ContainerPagesProps {
     children: ReactNode
@@ -16,6 +17,7 @@ export const ContainerPages: FC<ContainerPagesProps> = ({ children, className = 
         >
             <div className="w-full mx-auto">
                 {children}
+                <Footer />
             </div>
         </motion.div>
     )
