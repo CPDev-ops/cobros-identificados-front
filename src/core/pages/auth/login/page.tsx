@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FiUser, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
 import { API_URL } from '../../../../service/connection';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 interface FormData {
     username: string;
@@ -80,6 +81,7 @@ export const LoginPage = () => {
                 console.log('Login exitoso:', data.message);
                 // Aquí puedes redirigir o actualizar el estado global
                 /* window.location.href = '/home'; */
+                toast.success(data.message || 'Login exitoso');
                 navigate('/home');
             } else {
                 // Error de credenciales

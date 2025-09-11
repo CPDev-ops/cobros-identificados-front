@@ -7,6 +7,7 @@ import ModalQr from "./components/mod/ModalQr"
 import LogoHeader from "../../shared/ui/LogoHeader"
 import GenerateOrderCard from "./components/GenerateOrderCard"
 import CardList from "./components/CardList"
+import LogoutButton from "../../shared/LogoutButton"
 
 interface PageHomeProps {
     domain: string;
@@ -29,6 +30,11 @@ const
                 <ContainerPages className="bg-gradient-to-tr  from-gray-100 to-gray-100 ">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto pt-6">
                         {/* COMPONENTES  */}
+                        {/* Botón de logout en la primera fila */}
+                        <div className="col-span-1 sm:col-span-2 lg:col-span-3 flex justify-end mb-2">
+                            <LogoutButton />
+                        </div>
+                        
                         {/* Logo que ocupa todas las columnas */}
                         <div className="col-span-1 sm:col-span-2 lg:col-span-3">
                             <LogoHeader domain={domain} />

@@ -96,6 +96,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ domain, success, isOpen, setIsOpe
                                 <input
                                     type="number"
                                     value={monto}
+                                    min={0}
                                     onChange={(e) => setMonto(e.target.value)}
                                     placeholder="1.000,00"
                                     className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring focus:ring-red-300"

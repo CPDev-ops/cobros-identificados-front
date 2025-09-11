@@ -3,7 +3,7 @@ import { ContainerPages } from "../../shared/ContainerPages"
 import { SidebarPage } from "../../shared/ResponsiveSidebar"
 import LogoHeader from "../../shared/ui/LogoHeader"
 import CardPaySuccess from "./components/CardPaySuccess";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../../../service/connection";
 
@@ -26,13 +26,13 @@ interface PaymentResult {
 
 const PageSuccess: FC<PageSuccessProps> = ({ domain }) => {
     const { orderId } = useParams();
-    /*  const { search } = useLocation(); */ // Para obtener query parameters como payment_id
+    const { search } = useLocation(); // Para obtener query parameters como payment_id
     const [paymentResult, setPaymentResult] = useState<PaymentResult | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     console.log("ORDER ID PARA TRAER-->", orderId);
-    /*    console.log("SEARCH PARA TRAER-->", search); */
+    console.log("SEARCH PARA TRAER-->", search);
 
     const getPaymentDetails = async () => {
         if (!orderId) {
@@ -42,7 +42,7 @@ const PageSuccess: FC<PageSuccessProps> = ({ domain }) => {
         }
 
         try {
-            const response = await axios.get(`${API_URL}/api/orders/${orderId}/result`);
+            const response = await axios.get(`${API_URL}/api/orders/${orderId}/result${search}`);
             console.log("Payment result data:", response.data);
             setPaymentResult(response.data);
 
@@ -61,7 +61,7 @@ const PageSuccess: FC<PageSuccessProps> = ({ domain }) => {
 
     useEffect(() => {
         getPaymentDetails();
-    }, [orderId, /* search */])
+    }, [orderId, search])
 
     // Función para formatear fecha
     const formatDate = (dateString?: string) => {

@@ -2,7 +2,6 @@ import { useEffect, useState, type FC } from "react";
 import { SidebarPage } from "../../shared/ResponsiveSidebar";
 import { ContainerPages } from "../../shared/ContainerPages";
 import LogoHeader from "../../shared/ui/LogoHeader";
-import Footer from "../../shared/Footer";
 import CardPayOrder from "./components/CardPayOrder";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
